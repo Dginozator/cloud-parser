@@ -33,7 +33,7 @@ services:
     volumes:
       - "/var/docker-compose/parser/data:/data"
   neko:
-    image: "m1k1o:neko:chromium"
+    image: "m1k1o/neko:chromium"
     restart: "unless-stopped"
     shm_size: "2gb"
     ports:
