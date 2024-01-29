@@ -1,0 +1,48 @@
+version: '3'
+services:
+  nodejs:
+    image: node:latest
+    ports:
+      - "3014:3014"
+    links:
+      - mongodb
+      - browserless-crome
+      - neko
+  mongodb:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+  browserless-crome:
+    image: browserless/chrome:latest
+    environment:
+      - DEBUG=browserless:*
+      - MAX_CONCURRENT_SESSIONS=10
+      - CONNECTION_TIMEOUT=60000
+      - MAX_QUEUE_LENGTH=20
+      - PREBOOT_CHROME=true
+      - DEMO_MODE=false
+      - HOST=0.0.0.0
+      - ENABLE_DEBUGGER=false
+      - TOKEN=${BROWSERLESS_TOKEN}
+      - PORT=3083
+      - WORKSPACE_DELETE_EXPIRED=true
+    container_name: "browserless-crome"
+    restart: always
+    ports:
+      - "3083:3083"
+    volumes:
+      - "/var/docker-compose/parser/data:/data"
+  neko:
+    image: "m1k1o:neko:chromium"
+    restart: "unless-stopped"
+    shm_size: "2gb"
+    ports:
+      - "8042:8042"
+      - "52000-52100:52000-52100/udp"
+    environment:
+      NEKO_SCREEN: 1920*1080@30
+      NEKO_PASSWORD: 205502
+      NEKO_PASSWORD_ADMIN: DV5on7ey
+      NEKO_EPR: 52000-52100
+      NEKO_ICELITE: 1
+      NEKO_NAT1T01: 176.57.208.72
