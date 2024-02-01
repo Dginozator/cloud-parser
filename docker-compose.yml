@@ -18,7 +18,7 @@ services:
       - ENABLE_DEBUGGER=false
       - TOKEN=${BROWSERLESS_TOKEN}
       - PORT=3083
-      - WORKSPACE_DELETE_EXPIRED=true
+      - WORKSPACE_DELETE_EXPIRED=false
     container_name: "browserless-crome"
     restart: always
     ports:
