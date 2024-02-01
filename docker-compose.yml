@@ -25,4 +25,4 @@ services:
       - "3083:3083"
     volumes:
       - "/var/docker-compose/parser/data:/data"
-      - "/var/docker-compose/parser/home:~"
+      - "/var/docker-compose/parser/home:/home"
