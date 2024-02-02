@@ -19,8 +19,6 @@ services:
       - TOKEN=${BROWSERLESS_TOKEN}
       - PORT=3083
       - WORKSPACE_DELETE_EXPIRED=false
-      - DATA_DIR=/tmp/my-profile
-      - DEFAULT_USER_DATA_DIR=/tmp/my-profile
     container_name: "browserless-crome"
     restart: always
     ports:
@@ -28,4 +26,3 @@ services:
     volumes:
       - "/var/docker-compose/parser/data:/data"
       - "/var/docker-compose/parser/tmp:/tmp/taxi-user"
-      - "/var/docker-compose/parser/tmp-default:/tmp/my-profile"
