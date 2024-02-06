@@ -5,6 +5,8 @@ services:
     restart: always
     ports:
       - "27017:27017"
+    volumes:
+      - "/var/docker-compose/parser/data-mongodb:/data/db"
   browserless-crome:
     image: browserless/chrome:latest
     environment:
