@@ -1,5 +1,4 @@
-# cloud-parser-env
-(WIP) Experiments, node.js + Playwright, browserless Chromium, MongoDB
+# (WIP) cloud-parser-env
 
 (A gray description of a typical project is expected here.)
 
