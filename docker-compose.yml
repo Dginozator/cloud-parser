@@ -1,12 +1,12 @@
 version: '3'
 services:
-  mongodb:
-    image: mongo:6.0
-    restart: always
-    ports:
-      - "27017:27017"
-    volumes:
-      - "/var/docker-compose/parser/data-mongodb:/data/db"
+  # mongodb:
+  #   image: mongo:6.0
+  #   restart: always
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - "/var/docker-compose/parser/data-mongodb:/data/db"
   browserless-crome:
     image: browserless/chrome:latest
     environment:
